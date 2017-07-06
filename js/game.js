@@ -14,10 +14,12 @@ var gameState = {
     this.traceCount = 0
     this.text
     this.brush = undefined
+
+
   },
+
   create: function(){
-    game.state.clearCurrentState()
-    this.brush
+
     background = game.add.image(0,0, 'board')
 
     //add letter
@@ -52,8 +54,11 @@ var gameState = {
         }
       }
     }
-    if (this.traceCount > 2  && points.countLiving()<1) {
-      this.text = game.add.text(350, 150, 'Muy Bien', {fill:'#000', font:'helvetica', fontSize:100})
+    if (this.traceCount > 2 && this.traceCount < 4 && points.countLiving()<1) {
+      this.traceCount++
+      // this.text = game.add.text(350, 150, 'Muy Bien', {fill:'#000', font:'helvetica', fontSize:100})
+      this.light = game.add.image(0,0,'light')
+      this.good = game.add.image(30,300, 'good')
     }
   },
 
@@ -68,8 +73,6 @@ var gameState = {
   },
 
   checkOverlap: function (pointA, pointB){
-    console.log('Punto A',pointA);
-    console.log('Punto B', pointB)
     if (pointA && pointB) {
       var boundsA = pointA.getBounds()
       var boundsB = pointB.getBounds()
@@ -79,7 +82,6 @@ var gameState = {
 
   initialTrace: function (points, i){
     var traces = Object.keys(words["A"])
-
     var innerTrace = traces.map(function(item, i){return words.A[item]})
     // console.log('soy inner ', innerTrace);
     innerTrace[i].map(function(item, i){
