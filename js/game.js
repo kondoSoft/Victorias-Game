@@ -30,8 +30,7 @@ var gameState = {
     btn_back.inputEnabled = true
     btn_back.events.onInputDown.add(this.onClickBack, this)
 
-    points = game.add.group()
-    this.initialTrace(points, this.traceCount)
+    points = this.initialTrace(words, this.traceCount)
 
     //paint
     game.input.addMoveCallback(this.paint, this);
@@ -49,7 +48,7 @@ var gameState = {
         if (points.countLiving() < 1) {
           this.traceCount++
           if (this.traceCount<3) {
-            this.initialTrace(points, this.traceCount)
+            points = this.initialTrace(words, this.traceCount)
           }
         }
       }
@@ -86,15 +85,17 @@ var gameState = {
     }
   },
 
-  initialTrace: function (points, i){
+  initialTrace: function (words, i){
     var traces = Object.keys(words["A"])
+    var group = game.add.group()
     var innerTrace = traces.map(function(item, i){return words.A[item]})
     // console.log('soy inner ', innerTrace);
     innerTrace[i].map(function(item, i){
       setTimeout(function () {
-        points.create(item[0], item[1], 'circle')
+        group.create(item[0], item[1], 'circle')
       }, i*100);
     });
+    return group
   },
 
   onClickBack: function(){
