@@ -1,7 +1,6 @@
 var w = window.innerWidth * window.devicePixelRatio,
     h = window.innerHeight * window.devicePixelRatio;
 
-
 /*
 For Fullscreen put this code:
 
