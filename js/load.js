@@ -22,7 +22,8 @@ var loadState = {
     game.load.image('gis-azul', 'assets/img/pizarron/gis_azul.png')
     game.load.image('gis-amarillo', 'assets/img/pizarron/gis_amarillo.png')
     game.load.image('gis-rosa', 'assets/img/pizarron/gis_rosa.png')
-
+    game.load.image('light', 'assets/img/pizarron/luces.png')
+    game.load.image('good', 'assets/img/pizarron/muybien.png')
 
     //utils images
     game.load.image('circle', 'assets/img/circle.png')
