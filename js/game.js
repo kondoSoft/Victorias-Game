@@ -56,9 +56,15 @@ var gameState = {
     }
     if (this.traceCount > 2 && this.traceCount < 4 && points.countLiving()<1) {
       this.traceCount++
-      // this.text = game.add.text(350, 150, 'Muy Bien', {fill:'#000', font:'helvetica', fontSize:100})
-      this.light = game.add.image(0,0,'light')
-      this.good = game.add.image(30,300, 'good')
+      var that = this
+      setTimeout(function () {
+        game.input.deleteMoveCallback(that.paint, that);
+        that.light = game.add.image(0,0,'light')
+        that.good = game.add.image(30,300, 'good')
+      }, 500);
+      setTimeout(function () {
+        game.state.restart()
+      }, 5000);
     }
   },
 
