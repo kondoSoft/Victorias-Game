@@ -30,18 +30,18 @@ var bootState = {
         //Initial GameSystem (Arcade, P2, Ninja)
         game.physics.startSystem(Phaser.Physics.ARCADE);
 
-        this.game.stateTransition = this.game.plugins.add(Phaser.Plugin.StateTransition);
-        this.game.stateTransition.configure({
-          duration: Phaser.Timer.SECOND * 0.8,
-          ease: Phaser.Easing.Exponential.InOut,
-          properties: {
-            alpha: 0,
-            scale: {
-              x: 1.4,
-              y: 1.4
-            }
-          }
-        });
+        // this.game.stateTransition = this.game.plugins.add(Phaser.Plugin.StateTransition);
+        // this.game.stateTransition.configure({
+        //   duration: Phaser.Timer.SECOND * 0.8,
+        //   ease: Phaser.Easing.Exponential.InOut,
+        //   properties: {
+        //     alpha: 0,
+        //     scale: {
+        //       x: 1,
+        //       y: 1
+        //     }
+        //   }
+        // });
 
         //Initial Load State
         game.state.start('load');
