@@ -13,6 +13,7 @@ var menuState = {
     // btn_abc.scale.setTo(0.75, 0.75)
     btn_abc.inputEnabled = true
     btn_abc.events.onInputDown.add(this.onClickAbc, this)
+    btn_abc.events.onInputUp.add(this.onClickUpAbc, this)
 
     btn_123 = game.add.button(600, 500, 'btn-123')
     // btn_123.scale.setTo(0.75,0.75)
@@ -24,8 +25,18 @@ var menuState = {
 
   },
 
-  onClickAbc: function(){
-    game.state.start('game')
+  onClickAbc: function(e){
+    e.kill()
+    btn_abc = game.add.button(100, 500, 'btn2-abc')
+  },
+  onClickUpAbc: function(e){
+    e.kill()
+    btn_abc = game.add.button(100, 500, 'btn-abc')
+    setTimeout(function () {
+      game.state.restart()
+      game.stateTransition.to('letter-a')
+    }, 100);
+
   }
 
 };
