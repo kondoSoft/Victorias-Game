@@ -43,20 +43,13 @@ var letterO_State = {
       this.traceCount++
       var state = this
       setTimeout(function () {
+        state.btn_back.kill()
         game.input.deleteMoveCallback(state.paint, state);
         state.light = game.add.image(0,0,'light')
         state.good = game.add.image(30,300, 'good')
-
-        state.btn_back = null
-        state.btn_back = game.add.button(40,60,'btn-back')
-        state.btn_back.inputEnabled = true
-        state.btn_back.events.onInputDown.add(state.onClickDownBack, state)
-        state.btn_back.events.onInputDown.add(state.onClickUpBack, state)
-
-
       }, 500);
       setTimeout(function () {
-        game.stateTransition.to('letter-u')
+        game.state.start('result-o')
       }, 5000);
     }
   },
@@ -100,7 +93,7 @@ var letterO_State = {
     setTimeout(function () {
       points.killAll()
       game.state.restart()
-      game.stateTransition.to('menu')
+      game.state.start('menu')
 
     }, 100);
   }

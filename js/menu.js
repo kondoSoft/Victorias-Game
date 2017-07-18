@@ -34,7 +34,7 @@ var menuState = {
     btn_abc = game.add.button(100, 500, 'btn-abc')
     setTimeout(function () {
       game.state.restart()
-      game.stateTransition.to('letter-a')
+      game.state.start('letter-a')
     }, 100);
 
   }

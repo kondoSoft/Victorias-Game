@@ -34,7 +34,8 @@ var letterA_State = {
       if (this.checkOverlap(this.brush, points.getFirstAlive())) {
         point = points.getFirstAlive()
         point.kill()
-        if (points.countLiving() < 1) {
+
+        if (points.countLiving() < 1 && points.countDead() > 3) {
           this.traceCount++
           if (this.traceCount < this.totalTraces) {
             points = this.initialTrace(lettersTrace, this.traceCount)
@@ -46,21 +47,15 @@ var letterA_State = {
       this.traceCount++
       var state = this
       setTimeout(function () {
+        state.btn_back.kill()
         game.input.deleteMoveCallback(state.paint, state);
         state.light = game.add.image(0,0,'light')
         state.good = game.add.image(30,300, 'good')
 
-        state.btn_back = null
-        state.btn_back = game.add.button(40,60,'btn-back')
-        state.btn_back.inputEnabled = true
-        state.btn_back.events.onInputDown.add(state.onClickDownBack, state)
-        state.btn_back.events.onInputDown.add(state.onClickUpBack, state)
-
-
       }, 500);
       setTimeout(function () {
-        game.stateTransition.to('letter-e')
-      }, 3000);
+        game.state.start('result-a')
+      }, 2000);
     }
   },
 
@@ -83,15 +78,28 @@ var letterA_State = {
     }
   },
 
-  initialTrace: function (words, i){
+  initialTrace: function (words, index){
     var traces = Object.keys(words["A"])
     var group = game.add.group()
     var innerTrace = traces.map(function(item){return words.A[item]})
     // console.log('soy inner ', innerTrace);
-    innerTrace[i].map(function(item, i){
-      setTimeout(function () {
-        group.create(item[0], item[1], 'circle')
-      }, i*100);
+    innerTrace[index].map(function(item, i, array){
+      if (i == 0) {
+        setTimeout(function () {
+          group.create(item[0], item[1], 'circleBig')
+        }, i*100);
+      }else if (i === array.length -1) {
+        setTimeout(function () {
+          var arrow = group.create(item[0], item[1], 'arrow')
+          if (index == 0) {
+            arrow.rotation = -2.5
+          }
+        }, i*100);
+      }else {
+        setTimeout(function () {
+          group.create(item[0], item[1], 'circleSmall')
+        }, i*100);
+      }
     });
     return group
   },
@@ -108,7 +116,7 @@ var letterA_State = {
     setTimeout(function () {
       points.killAll()
       game.state.restart()
-      game.stateTransition.to('menu')
+      game.state.start('menu')
 
     }, 100);
   }
