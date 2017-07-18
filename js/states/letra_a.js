@@ -94,6 +94,9 @@ var letterA_State = {
           if (index == 0) {
             arrow.rotation = -2.5
           }
+          if (index == 2) {
+            arrow.rotation = -1.2
+          }
         }, i*100);
       }else {
         setTimeout(function () {
