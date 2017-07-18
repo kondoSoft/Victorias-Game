@@ -1,0 +1,23 @@
+{
+  "name": "victorias-game",
+  "version": "1.0.0",
+  "description": "<div align=\"center\"><img src=\"https://github.com/DallOner/Phaser-Boilerplate/blob/master/assets/img/boilerplate-logo.png\"></div>",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kondoSoft/Victorias-Game.git"
+  },
+  "author": "kondo soft",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kondoSoft/Victorias-Game/issues"
+  },
+  "homepage": "https://github.com/kondoSoft/Victorias-Game#readme",
+  "devDependencies": {
+    "express": "^4.15.3",
+    "ip": "^1.1.5"
+  }
+}
