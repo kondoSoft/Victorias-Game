@@ -6,7 +6,12 @@ var menuState = {
     // game.add.plugin(Phaser.Plugin.Inspector);
 
     //added background
-    background = game.add.image(0, 0, 'background');
+    console.log(jscd.os);
+    if (jscd.os == 'iOS') {
+      background = game.add.image(0, 0, 'background');
+    }else {
+      background = game.add.image(0, 0, 'background-android');
+    }
     // background.scale.setTo(0.75,0.75)
     //added ABC button
     btn_abc = game.add.button(100, 500, 'btn-abc')

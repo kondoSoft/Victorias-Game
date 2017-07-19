@@ -11,6 +11,7 @@ var loadState = {
     var loadingLabel = game.add.text(game.world.centerX, game.world.centerY, 'loading...', {font: '30px Courier', fill: '#fff'});
 
     //Load your images, spritesheets, bitmaps...
+    //*** IOS ASSETS ***\\
     // Menu main assets
     game.load.image('background', 'assets/img/ios/no_retina/menu_inicio/menu_fondo.png')
     game.load.image('btn-settings', 'assets/img/ios/no_retina/menu_inicio/button_settings.png')
@@ -57,6 +58,15 @@ var loadState = {
     game.load.image('uva', 'assets/img/ios/no_retina/letras/letraU/u_uva.png')
 
 
+    //*** ANDROID ASSETS ***\\
+    // Menu main assets
+    game.load.image('background-android', 'assets/img/android/xhdpi/menu_inicio/pizarron.png')
+    game.load.image('btn-settings-android', 'assets/img/android/xhdpi/menu_inicio/button_settings.png')
+    game.load.image('btn-abc-android', 'assets/img/android/xhdpi/menu_inicio/button_abc.png')
+    game.load.image('btn2-abc-android', 'assets/img/android/xhdpi/menu_inicio/button2_abc.png')
+    game.load.image('btn-123-android', 'assets/img/android/xhdpi/menu_inicio/button_123.png')
+
+    //*** GENERIC ASSETS ***\\
     //utils images
     game.load.image('circleBig', 'assets/img/pizarron/punto1.png')
     game.load.image('circleSmall', 'assets/img/pizarron/punto2.png')
@@ -67,9 +77,6 @@ var loadState = {
 
     game.load.image('btn-back', 'assets/img/pizarron/button_back.png')
     game.load.image('btn2-back', 'assets/img/pizarron/button2_back.png')
-
-
-
 
     //Load your sounds, efx, music...
     //Example: game.load.audio('rockas', 'assets/snd/rockas.wav');
