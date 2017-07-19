@@ -19,51 +19,52 @@
 -->
 <html>
   <head>
-      <!--
-      Customize this policy to fit your own app's needs. For more guidance, see:
-          https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
-      Some notes:
-          * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-          * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-          * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-              * Enable inline JS: add 'unsafe-inline' to default-src
-      -->
-      <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
-      <meta name="format-detection" content="telephone=no">
-      <meta name="msapplication-tap-highlight" content="no">
-      <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-      <meta name="author" content="Kondo Soft" />
-      <meta name="description" content="Codename-Victoria's Game" />
+    <!--
+    Customize this policy to fit your own app's needs. For more guidance, see:
+        https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+    Some notes:
+        * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+        * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+        * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+            * Enable inline JS: add 'unsafe-inline' to default-src
+    -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <meta name="author" content="Kondo Soft" />
+    <meta name="description" content="Codename-Victoria's Game" />
 
-      <script type="text/javascript" src="lib/phaser.min.js"></script>
-      <script type="text/javascript" src="plugins/phaser-state-transition-plugin.min.js"></script>
-      <script type="text/javascript" src="js/boot.js"></script>
-      <script type="text/javascript" src="js/load.js"></script>
-      <script type="text/javascript" src="js/menu.js"></script>
-      <!-- Scenes of the game -->
-      <script type="text/javascript" src="js/states/letra_a.js"></script>
-      <script type="text/javascript" src="js/states/letra_e.js"></script>
-      <script type="text/javascript" src="js/states/letra_i.js"></script>
-      <script type="text/javascript" src="js/states/letra_o.js"></script>
-      <script type="text/javascript" src="js/states/letra_u.js"></script>
-      <script type="text/javascript" src="js/states/resultado_a.js"></script>
-      <script type="text/javascript" src="js/states/resultado_e.js"></script>
-      <script type="text/javascript" src="js/states/resultado_i.js"></script>
-      <script type="text/javascript" src="js/states/resultado_o.js"></script>
-      <script type="text/javascript" src="js/states/resultado_u.js"></script>
-
-
+    <script type="text/javascript" src="lib/phaser.min.js"></script>
+    <script type="text/javascript" src="plugins/phaser-state-transition-plugin.min.js"></script>
+    <script type="text/javascript" src="js/boot.js"></script>
+    <script type="text/javascript" src="js/load.js"></script>
+    <script type="text/javascript" src="js/menu.js"></script>
+    <!-- Scenes of the game -->
+    <script type="text/javascript" src="js/states/letra_a.js"></script>
+    <script type="text/javascript" src="js/states/letra_e.js"></script>
+    <script type="text/javascript" src="js/states/letra_i.js"></script>
+    <script type="text/javascript" src="js/states/letra_o.js"></script>
+    <script type="text/javascript" src="js/states/letra_u.js"></script>
+    <script type="text/javascript" src="js/states/resultado_a.js"></script>
+    <script type="text/javascript" src="js/states/resultado_e.js"></script>
+    <script type="text/javascript" src="js/states/resultado_i.js"></script>
+    <script type="text/javascript" src="js/states/resultado_o.js"></script>
+    <script type="text/javascript" src="js/states/resultado_u.js"></script>
 
 
-      <!-- END -->
-      <script type="text/javascript" src="js/stateManager.js"></script>
 
-      <script type="text/javascript" src="plugins/phaser-debug.js"></script>
-      <script type="text/javascript" src="plugins/phaser-inspector.min.js"></script>
 
-      <link rel="stylesheet" href="css/style.css">
+    <!-- END -->
+    <script type="text/javascript" src="js/stateManager.js"></script>
 
-      <title>Victoria's Game</title>
+    <script type="text/javascript" src="plugins/phaser-debug.js"></script>
+    <script type="text/javascript" src="plugins/phaser-inspector.min.js"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Victoria's Game</title>
+
   <body>
     <div id="gameContainer"></div>
   </body>

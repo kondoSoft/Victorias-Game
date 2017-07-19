@@ -1,6 +1,6 @@
 
 var trace = []
-console.log(device);
+
 var letterA_State = {
   preload:function(){
     this.traceCount = 0
