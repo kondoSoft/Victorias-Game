@@ -24,6 +24,9 @@ var lettersTrace = {
 }
 
 var bootState = {
+    init:function(){
+      game.scale.scaleMode = Phaser.ScaleManager.RESIZE;
+    },
 
     create: function () {
 
