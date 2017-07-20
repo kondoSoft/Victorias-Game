@@ -81,7 +81,6 @@ var letterO_State = {
       }else if (i == array.length-1) {
         setTimeout(function () {
           var arrow = group.create(item[0], item[1], 'arrow')
-          console.log(arrow);
           arrow.rotation = 2.5
         }, i*100);
       }else {

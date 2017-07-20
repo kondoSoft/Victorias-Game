@@ -1,5 +1,5 @@
-var w = window.innerWidth * window.devicePixelRatio,
-    h = window.innerHeight * window.devicePixelRatio;
+// var w = window.innerWidth * window.devicePixelRatio,
+//     h = window.innerHeight * window.devicePixelRatio;
 
 /*
 For Fullscreen put this code:
@@ -7,8 +7,9 @@ For Fullscreen put this code:
 var w = window.innerWidth * window.devicePixelRatio,
     h = window.innerHeight * window.devicePixelRatio;
 */
+console.log(jscd);
 
-var game = new Phaser.Game(w, h, Phaser.AUTO, 'gameContainer');
+var game = new Phaser.Game('100%', '100%', Phaser.AUTO, 'gameContainer');
 
 game.state.add('boot', bootState);
 game.state.add('load', loadState);
