@@ -66,17 +66,24 @@ var loadState = {
     game.load.image('btn2-abc-android', 'assets/img/android/xhdpi/menu_inicio/button2_abc.png')
     game.load.image('btn-123-android', 'assets/img/android/xhdpi/menu_inicio/button_123.png')
 
+    //Pantalla de juego
+    game.load.image('board-android', 'assets/img/android/xhdpi/pizarron/pizarron.png')
+    game.load.image('light-android', 'assets/img/android/xhdpi/pizarron/luces.png')
+
+    //Pantalla de Resultados
+    game.load.image('background-result-android-xhdpi', 'assets/img/android/xhdpi/resultados/fondo.png')
+
     //*** GENERIC ASSETS ***\\
     //utils images
-    game.load.image('circleBig', 'assets/img/pizarron/punto1.png')
-    game.load.image('circleSmall', 'assets/img/pizarron/punto2.png')
-    game.load.image('arrow', 'assets/img/pizarron/flecha.png')
+    game.load.image('circleBig', 'assets/img/ios/no_retina/pizarron/punto1.png')
+    game.load.image('circleSmall', 'assets/img/ios/no_retina/pizarron/punto2.png')
+    game.load.image('arrow', 'assets/img/ios/no_retina/pizarron/flecha.png')
     game.load.image('brush-azul', 'assets/img/brush_azul.png')
     game.load.image('brush-amarillo', 'assets/img/brush_amarillo.png')
     game.load.image('brush-rosa', 'assets/img/brush_rosa.png')
 
-    game.load.image('btn-back', 'assets/img/pizarron/button_back.png')
-    game.load.image('btn2-back', 'assets/img/pizarron/button2_back.png')
+    game.load.image('btn-back', 'assets/img/ios/no_retina/pizarron/button_back.png')
+    game.load.image('btn2-back', 'assets/img/ios/no_retina/pizarron/button2_back.png')
 
     //Load your sounds, efx, music...
     //Example: game.load.audio('rockas', 'assets/snd/rockas.wav');
