@@ -6,8 +6,11 @@ var letterO_State = {
   },
 
   create: function(){
-
-    background = game.add.image(0,0, 'board')
+    if (jscd.os == 'iOS') {
+      background = game.add.image(0,0, 'board')
+    }else {
+      background = game.add.image(0,0, 'board-android')
+    }
 
     //add letter
     letter = game.add.sprite(300, 150, 'letter-o')
@@ -45,8 +48,13 @@ var letterO_State = {
       setTimeout(function () {
         state.btn_back.kill()
         game.input.deleteMoveCallback(state.paint, state);
-        state.light = game.add.image(0,0,'light')
-        state.good = game.add.image(30,300, 'good')
+        if (jscd.os == 'iOS') {
+          state.light = game.add.image(0,0,'light')
+          state.good = game.add.image(game.world.centerX-490,game.world.centerY-133.5, 'good')
+        }else {
+          state.light = game.add.image(0,0,'light-android')
+          state.good = game.add.image(game.world.centerX-490,game.world.centerY-133.5, 'good')
+        }
       }, 300);
       setTimeout(function () {
         game.state.start('result-o')
