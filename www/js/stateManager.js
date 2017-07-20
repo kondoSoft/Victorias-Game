@@ -7,7 +7,6 @@ For Fullscreen put this code:
 var w = window.innerWidth * window.devicePixelRatio,
     h = window.innerHeight * window.devicePixelRatio;
 */
-console.log(jscd);
 
 var game = new Phaser.Game('100%', '100%', Phaser.AUTO, 'gameContainer');
 
