@@ -3,11 +3,16 @@ var letterI_State = {
     this.traceCount = 0
     this.brush = undefined
     this.totalTraces = Object.keys(lettersTrace['I']).length
+    this.pinceles = ['brush-azul', 'brush-amarillo']
+    this.indexBrush = 0
   },
 
   create: function(){
-
-    background = game.add.image(0,0, 'board')
+    if (jscd.os == 'iOS') {
+      background = game.add.image(0,0, 'board')
+    }else {
+      background = game.add.image(0,0, 'board-android')
+    }
 
     //add letter
     letter = game.add.sprite(350, 150, 'letter-i')
@@ -20,6 +25,17 @@ var letterI_State = {
 
 
     points = this.initialTrace(lettersTrace, this.traceCount)
+
+    //stickers
+    this.churchSticker = game.add.image(100,200, 'iglesia-sticker');
+    this.iguanaSticker = game.add.image(100, 450, 'iguana-sticker')
+
+    //gis
+    var state = this
+    this.gisAmarillo = game.add.button(game.world.width - 220, 300, 'gis-azul', function(){state.indexBrush = 0})
+    this.gisAmarillo.rotation = 0.2
+    this.gisAzul = game.add.button(game.world.width - 220, 400, 'gis-amarillo', function(){state.indexBrush = 1})
+    this.gisAzul.rotation = 0.2
 
     //paint
     game.input.addMoveCallback(this.paint, this);
@@ -45,18 +61,30 @@ var letterI_State = {
       setTimeout(function () {
         state.btn_back.kill()
         game.input.deleteMoveCallback(state.paint, state);
-        state.light = game.add.image(0,0,'light')
-        state.good = game.add.image(30,300, 'good')
+        if (jscd.os == 'iOS') {
+          state.light = game.add.image(0,0,'light')
+          state.good = game.add.image(game.world.centerX-490,game.world.centerY-133.5, 'good')
+        }else {
+          state.light = game.add.image(0,0,'light-android')
+          state.good = game.add.image(game.world.centerX-490,game.world.centerY-133.5, 'good')
+        }
       }, 300);
       setTimeout(function () {
         game.state.start('result-i')
       }, 2000);
     }
+    if (this.checkOverlap(this.brush, this.iguanaSticker) ||
+        this.checkOverlap(this.brush, this.churchSticker) ||
+        this.checkOverlap(this.brush, this.btn_back) ||
+        this.checkOverlap(this.brush, this.gisAzul) ||
+        this.checkOverlap(this.brush, this.gisAmarillo)) {
+      this.brush.kill()
+    }
   },
 
   paint: function (pointer,x ,y){
     if (pointer.isDown) {
-      this.brush = game.add.sprite(x -32, y -32, 'brush-amarillo')
+      this.brush = game.add.sprite(x -32, y -32, this.pinceles[this.indexBrush])
     }
   },
 

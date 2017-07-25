@@ -6,37 +6,80 @@ var menuState = {
     // game.add.plugin(Phaser.Plugin.Inspector);
 
     //added background
-    console.log(jscd.os);
     if (jscd.os == 'iOS') {
       background = game.add.image(0, 0, 'background');
     }else {
-      background = game.add.image(0, 0, 'background-android');
+      if (screen.width <= 960) {
+        background = game.add.image(0, 0, 'background-android-hdpi')
+      }else {
+        background = game.add.image(0, 0, 'background-android-xhdpi');
+      }
     }
-    // background.scale.setTo(0.75,0.75)
+
     //added ABC button
-    btn_abc = game.add.button(100, 500, 'btn-abc')
-    // btn_abc.scale.setTo(0.75, 0.75)
+    if (jscd.os == 'iOS') {
+      btn_abc = game.add.button(game.world.centerX-160, 500, 'btn-abc')
+    }else {
+      if (screen.width <= 960) {
+        btn_abc = game.add.button(game.world.centerX-350, game.world.centerY + 50, 'btn-abc-android-hdpi')
+      }else {
+        btn_abc = game.add.button(game.world.centerX-450, 500, 'btn-abc')
+      }
+    }
     btn_abc.inputEnabled = true
     btn_abc.events.onInputDown.add(this.onClickAbc, this)
     btn_abc.events.onInputUp.add(this.onClickUpAbc, this)
 
-    btn_123 = game.add.button(600, 500, 'btn-123')
-    // btn_123.scale.setTo(0.75,0.75)
+    if (jscd.os == 'iOS') {
+      // btn_123 = game.add.button(600, 500, 'btn-123')
+    }else {
+      if (screen.width <= 960) {
+        btn_123 = game.add.button(game.world.width-400, game.world.centerY + 50, 'btn-123-android-hdpi')
+      }else {
+        btn_123 = game.add.button(game.world.width-500, 500, 'btn-123')
+      }
+    }
 
     // added Settings button
+    if (jscd.os == 'iOS') {
+      // btn_settings = game.add.image(870,100,'btn-settings');
+    }else {
+      if (screen.width <= 960) {
+        btn_settings = game.add.image(game.world.width - 130,60,'btn-settings-android-hdpi');
+      }else {
+        btn_settings = game.add.image(game.world.width - 150,80,'btn-settings');
+      }
+    }
 
-    btn_settings = game.add.image(870,100,'btn-settings');
-    // btn_settings.scale.setTo(0.75,0.75)
+    game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
+    game.input.onDown.add(gofull, this);
 
   },
 
   onClickAbc: function(e){
     e.kill()
-    btn_abc = game.add.button(100, 500, 'btn2-abc')
+    if (jscd.os == 'iOS') {
+      btn_abc = game.add.button(game.world.centerX-160, 500, 'btn2-abc')
+    }else {
+      if (screen.width <= 960) {
+        btn_abc = game.add.button(game.world.centerX-350, game.world.centerY + 50, 'btn2-abc-android-hdpi')
+      }else {
+        btn_abc = game.add.button(game.world.centerX-450, 500, 'btn2-abc')
+      }
+    }
+
   },
   onClickUpAbc: function(e){
     e.kill()
-    btn_abc = game.add.button(100, 500, 'btn-abc')
+    if (jscd.os == 'iOS') {
+      btn_abc = game.add.button(game.world.centerX-160, 500, 'btn-abc')
+    }else {
+      if (screen.width <= 960) {
+        btn_abc = game.add.button(game.world.centerX-350, game.world.centerY + 50, 'btn-abc-android-hdpi')
+      }else {
+        btn_abc = game.add.button(game.world.centerX-450, 500, 'btn-abc')
+      }
+    }
     setTimeout(function () {
       game.state.restart()
       game.state.start('letter-a')
@@ -45,3 +88,10 @@ var menuState = {
   }
 
 };
+
+function gofull() {
+  if (!game.scale.isFullScreen)
+  {
+      game.scale.startFullScreen(false);
+  }
+}

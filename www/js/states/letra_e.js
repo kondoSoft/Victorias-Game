@@ -3,6 +3,8 @@ var letterE_State = {
     this.traceCount = 0
     this.brush = undefined
     this.totalTraces = Object.keys(lettersTrace['E']).length
+    this.pinceles = ['brush-azul', 'brush-amarillo']
+    this.indexBrush = 0
   },
 
   create: function(){
@@ -23,6 +25,17 @@ var letterE_State = {
 
 
     points = this.initialTrace(lettersTrace, this.traceCount)
+
+    //stickers
+    this.elephantSticker = game.add.image(100,250, 'elefante-sticker');
+    this.starSticker = game.add.image(100, 450, 'estrella-sticker')
+
+    //gis
+    var state = this
+    this.gisAmarillo = game.add.button(game.world.width - 220, 300, 'gis-azul', function(){state.indexBrush = 0})
+    this.gisAmarillo.rotation = 0.2
+    this.gisAzul = game.add.button(game.world.width - 220, 400, 'gis-amarillo', function(){state.indexBrush = 1})
+    this.gisAzul.rotation = 0.2
 
     //paint
     game.input.addMoveCallback(this.paint, this);
@@ -61,11 +74,18 @@ var letterE_State = {
         game.state.start('result-e')
       }, 2000);
     }
+    if (this.checkOverlap(this.brush, this.starSticker) ||
+        this.checkOverlap(this.brush, this.elephantSticker) ||
+        this.checkOverlap(this.brush, this.btn_back) ||
+        this.checkOverlap(this.brush, this.gisAzul) ||
+        this.checkOverlap(this.brush, this.gisAmarillo)) {
+      this.brush.kill()
+    }
   },
 
   paint: function (pointer,x ,y){
     if (pointer.isDown) {
-      this.brush = game.add.sprite(x -32, y -32, 'brush-amarillo')
+      this.brush = game.add.sprite(x -32, y -32, this.pinceles[this.indexBrush])
     }
   },
 

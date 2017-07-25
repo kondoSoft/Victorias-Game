@@ -1,65 +1,113 @@
 var resultadoO_State = {
   create: function(){
-    this.background = game.add.image(0,0, 'background-result')
+    if (jscd.os == 'iOS') {
+      this.background = game.add.image(0,0, 'background-result')
+    }else {
+      this.background = game.add.image(0,0, 'background-result-android-xhdpi')
+    }
 
     //NEXT Button
-    this.btn_next = game.add.button(424.5,480, 'btn-next')
+    if (jscd.os == 'iOS') {
+      this.btn_next = game.add.button(424.5,480, 'btn-next')
+    }else {
+      this.btn_next = game.add.button(game.world.centerX - 87.5,480, 'btn-next')
+    }
     this.btn_next.inputEnabled = true
     this.btn_next.events.onInputDown.add(this.onClickDownNext, this)
     this.btn_next.events.onInputUp.add(this.onClickUpNext, this)
 
     //Button HOME
-    this.btn_home = game.add.button(200,520, 'btn-home')
+    if (jscd.os == 'iOS') {
+      this.btn_home = game.add.button(200,520, 'btn-home')
+    }else {
+      this.btn_home = game.add.button(game.world.centerX - 351,520, 'btn-home')
+    }
     this.btn_home.inputEnabled = true
     this.btn_home.events.onInputDown.add(this.onClickDownHome, this)
     this.btn_home.events.onInputUp.add(this.onClickUpHome, this)
 
 
     //Button Reset
-    this.btn_reset = game.add.button(700,520, 'btn-reset')
+    if (jscd.os == 'iOS') {
+      this.btn_reset = game.add.button(700,520, 'btn-reset')
+    }else {
+      this.btn_reset = game.add.button(game.world.width - 426,520, 'btn-reset')
+    }
     this.btn_reset.inputEnabled = true
     this.btn_reset.events.onInputDown.add(this.onClickDownReset, this)
     this.btn_reset.events.onInputUp.add(this.onClickUpReset, this)
 
 
     //Image Words
-    this.church = game.add.image(80,130,'oruga')
-    this.church.rotation = -0.050
+    if (jscd.os == 'iOS') {
+      this.oruga = game.add.image(80,130,'oruga')
+      this.oruga.rotation = -0.050
 
-    this.iguana = game.add.image(560, 110, 'oso')
-    this.iguana.rotation = 0.050
+      this.bear = game.add.image(560, 110, 'oso')
+      this.bear.rotation = 0.050
+    }else {
+      this.oruga = game.add.image(game.world.centerX - 470,130,'oruga')
+      this.oruga.rotation = -0.050
+
+      this.bear = game.add.image(game.world.centerX + 80, 110, 'oso')
+      this.bear.rotation = 0.050
+    }
 
   },
 
   onClickDownNext: function(e){
     e.kill()
-    this.btn_next = game.add.button(424.5,480, 'btn2-next')
+    if (jscd.os == 'iOS') {
+      this.btn_next = game.add.button(424.5,480, 'btn2-next')
+    }else {
+      this.btn_next = game.add.button(game.world.centerX - 87.5,480, 'btn2-next')
+    }
   },
   onClickUpNext: function(e){
     e.kill()
-    this.btn_next = game.add.button(424.5,480, 'btn-next')
+    if (jscd.os == 'iOS') {
+      this.btn_next = game.add.button(424.5,480, 'btn-next')
+    }else {
+      this.btn_next = game.add.button(game.world.centerX - 87.5,480, 'btn-next')
+    }
     setTimeout(function () {
       game.state.start('letter-u')
     }, 100);
   },
   onClickDownHome: function(e){
     e.kill()
-    this.btn_home = game.add.button(200,520, 'btn2-home')
+    if (jscd.os == 'iOS') {
+      this.btn_home = game.add.button(200,520, 'btn2-home')
+    }else {
+      this.btn_home = game.add.button(game.world.centerX - 351,520, 'btn2-home')
+    }
   },
   onClickUpHome: function(e){
     e.kill()
-    this.btn_home = game.add.button(200,520, 'btn-home')
+    if (jscd.os == 'iOS') {
+      this.btn_home = game.add.button(200,520, 'btn-home')
+    }else {
+      this.btn_home = game.add.button(game.world.centerX - 351,520, 'btn-home')
+    }
     setTimeout(function () {
       game.state.start('menu')
     }, 100);
   },
   onClickDownReset: function(e){
     e.kill()
-    this.btn_reset = game.add.button(700,520, 'btn2-reset')
+    if (jscd.os == 'iOS') {
+      this.btn_reset = game.add.button(700,520, 'btn2-reset')
+    }else {
+      this.btn_reset = game.add.button(game.world.width - 426,520, 'btn2-reset')
+    }
   },
   onClickUpReset: function(e){
     e.kill()
-    this.btn_reset = game.add.button(700,520, 'btn-reset')
+    if (jscd.os == 'iOS') {
+      this.btn_reset = game.add.button(700,520, 'btn-reset')
+    }else {
+      this.btn_reset = game.add.button(game.world.width - 426,520, 'btn-reset')
+    }
     setTimeout(function () {
       game.state.start('letter-o')
     }, 100);

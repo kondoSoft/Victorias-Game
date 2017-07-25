@@ -40,17 +40,17 @@ var resultadoU_State = {
 
     //Image Words
     if (jscd.os == 'iOS') {
-      this.church = game.add.image(80,130,'unicornio')
-      this.church.rotation = -0.050
+      this.unicornio = game.add.image(80,130,'unicornio')
+      this.unicornio.rotation = -0.050
 
-      this.iguana = game.add.image(560, 110, 'uva')
-      this.iguana.rotation = 0.050
+      this.uva = game.add.image(560, 110, 'uva')
+      this.uva.rotation = 0.050
     }else {
-      this.church = game.add.image(game.world.centerX - 470,130,'unicornio')
-      this.church.rotation = -0.050
+      this.unicornio = game.add.image(game.world.centerX - 470,130,'unicornio')
+      this.unicornio.rotation = -0.050
 
-      this.iguana = game.add.image(game.world.centerX + 80, 110, 'uva')
-      this.iguana.rotation = 0.050
+      this.uva = game.add.image(game.world.centerX + 80, 110, 'uva')
+      this.uva.rotation = 0.050
     }
 
   },

@@ -7,7 +7,6 @@ For Fullscreen put this code:
 var w = window.innerWidth * window.devicePixelRatio,
     h = window.innerHeight * window.devicePixelRatio;
 */
-console.log(jscd);
 
 var game = new Phaser.Game('100%', '100%', Phaser.AUTO, 'gameContainer');
 
@@ -26,9 +25,6 @@ game.state.add('result-e', resultadoE_State);
 game.state.add('result-i', resultadoI_State);
 game.state.add('result-o', resultadoO_State);
 game.state.add('result-u', resultadoU_State);
-
-
-
 
 
 game.state.start('boot');
