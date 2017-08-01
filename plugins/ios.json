@@ -7,10 +7,10 @@
         "files": {}
     },
     "installed_plugins": {
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.kondosoft.vicotriasgame"
-        },
         "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.kondosoft.victoriasgame"
+        },
+        "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.kondosoft.victoriasgame"
         }
     },
