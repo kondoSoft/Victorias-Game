@@ -32,10 +32,12 @@ var letterO_State = {
 
     //gis
     var state = this
-    this.gisAmarillo = game.add.button(game.world.width - 220, 300, 'gis-azul', function(){state.indexBrush = 0})
-    this.gisAmarillo.rotation = 0.2
-    this.gisAzul = game.add.button(game.world.width - 220, 400, 'gis-amarillo', function(){state.indexBrush = 1})
+    this.gisAzul = game.add.button(game.world.width - 220, 300, 'gis-azul', function(){state.indexBrush = 0; state.gisAzul.scale.setTo(0.8, 0.8);  state.gisAmarillo.scale.setTo(1,1)})
     this.gisAzul.rotation = 0.2
+    this.gisAzul.scale.setTo(0.8, 0.8)
+
+    this.gisAmarillo = game.add.button(game.world.width - 220, 400, 'gis-amarillo', function(){state.indexBrush = 1; state.gisAmarillo.scale.setTo(0.8, 0.8); state.gisAzul.scale.setTo(1, 1)})
+    this.gisAmarillo.rotation = 0.2
 
     //paint
     game.input.addMoveCallback(this.paint, this);
