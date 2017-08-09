@@ -27,7 +27,4 @@ game.state.add('result-o', resultadoO_State);
 game.state.add('result-u', resultadoU_State);
 
 
-
-
-
 game.state.start('boot');

@@ -40,17 +40,17 @@ var resultadoO_State = {
 
     //Image Words
     if (jscd.os == 'iOS') {
-      this.church = game.add.image(80,130,'oruga')
-      this.church.rotation = -0.050
+      this.oruga = game.add.image(80,130,'oruga')
+      this.oruga.rotation = -0.050
 
-      this.iguana = game.add.image(560, 110, 'oso')
-      this.iguana.rotation = 0.050
+      this.bear = game.add.image(560, 110, 'oso')
+      this.bear.rotation = 0.050
     }else {
-      this.church = game.add.image(game.world.centerX - 470,130,'oruga')
-      this.church.rotation = -0.050
+      this.oruga = game.add.image(game.world.centerX - 470,130,'oruga')
+      this.oruga.rotation = -0.050
 
-      this.iguana = game.add.image(game.world.centerX + 80, 110, 'oso')
-      this.iguana.rotation = 0.050
+      this.bear = game.add.image(game.world.centerX + 80, 110, 'oso')
+      this.bear.rotation = 0.050
     }
 
   },
